@@ -12,10 +12,7 @@
     "animation.css": "^0.1.0",
     "axios": "^0.24.0",
     "build": "^0.1.4",
-    "csv": "^6.0.5",
-    "kuromoji": "^0.1.2",
     "parcel": "^2.1.1",
-    "parcel-bundler": "^1.12.5",
-    "puppeteer": "^13.0.1"
+    "parcel-bundler": "^1.12.5"
   }
 }

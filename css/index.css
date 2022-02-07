@@ -9,7 +9,12 @@
 body {
     font-size: 100%; /* 1rem = 10px */
     font-family: 'Noto Sans JP', '游ゴシック', YuGothic, sans-serif;
+    background-color: #fafafa;
 }
+body a {
+    color: #333;
+}
+
 img {
     width: 100%;
 }
@@ -95,7 +100,7 @@ img {
     padding: 0.25rem;
     height: auto;
     text-decoration: none;
-    color: #333;
+    
     line-height: 1;
     white-space: nowrap;
     opacity: 0;
@@ -176,4 +181,22 @@ img {
 }
 .option_menu li img {
     vertical-align: bottom;
+}
+
+/* ネガポジ反転 
+*********************************************************/
+
+body.reverse {
+    background-color: #000;
+    color: #fafafa;
+}
+body.reverse a {
+    color: #fafafa;
+}
+body.reverse .header {
+    filter: invert(1);
+}
+body.reverse .option {
+    background-color: #000;
+    border: solid 2px #fafafa;
 }

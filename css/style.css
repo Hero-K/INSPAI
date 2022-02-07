@@ -1,0 +1,322 @@
+@charset "utf-8";
+@import url(./animation.css);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* min-height: 100vh; */
+    font-size: 100%; /* 1rem = 10px */
+    font-family: 'Noto Sans JP', '游ゴシック', YuGothic, sans-serif;
+    background-color: #fafafa;
+}
+
+button {
+    white-space: nowrap;
+    font-weight: lighter;
+    font-family: 'M PLUS Rounded', sans-serif;
+    background-color: #fff;
+    /* border: solid 1px #333; */
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px #000;
+    transition: .2s;
+}
+button.strong {
+    color: #fff;
+    background-color: #333;
+    /* border: solid 1px #333; */
+}
+button:hover {
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+
+/* ヘッダー */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    height: 4.5rem;
+    max-width: 960px;
+    border-bottom: solid 2px #777;
+    /* background-color: aqua; */
+}
+.header .logo {
+    width: 50%;
+    max-width: 150px;
+}
+header .logo a {
+    color: #000;
+    text-decoration: none;
+}
+
+#back {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+}
+.allow {
+    width: 100%;
+    height: 100%;
+}
+.allow::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    border-top: solid 1px #333;
+}
+.allow::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    width: 40%;
+    height: 40%;
+    border-top: solid 1px #333;
+    border-left: solid 1px #333;
+    transform: rotate(-45deg);
+}
+ #back:hover .allow {
+    animation: Allow .5s ease-out;
+}
+
+.container {
+    position: relative;
+    margin: 3rem auto 5rem;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 960px;
+    /* background-color: green; */
+}
+
+
+
+/* dictionary.html 
+*****************************************************/
+.container h2 {
+    color: #333;
+    font-size: 1.25rem;
+}
+.word {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    /* background-color: red; */
+}
+
+.word_title {
+    font-weight: bold;
+    line-height: 1.1;
+}
+.word_title_writing {
+    font-size: 2.25rem;
+}
+.word_title_ruby {
+    margin-top: 0.5rem;
+    color: #777;
+}
+
+
+.word_description_wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 50%;
+}
+.word_description {
+    padding-left: 1.5rem;
+    max-height: 5rem;
+    overflow: scroll;
+}
+
+.word_menu {
+    display: flex;
+    gap: 1rem;
+    padding-left: 1.5rem;
+}
+.edit {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+.delete {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+
+/* edit.php 
+****************************************************/
+#title_writing {
+    font-size: 2.5rem;
+    line-height: 1.1;
+}
+#title_ruby {
+    margin-top: 0.75rem;
+    color: #777;
+    line-height: 1.1;
+}
+
+.edit_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem 1rem 5rem 1rem;
+    width: 100%;
+    height: 100%;
+    animation: slideInY 0.5s ease-out;
+    background-color: #fafafa;
+}
+#edit {
+    margin-top: 48px;
+}
+#edit dl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+}
+#edit dl:first-child {
+    margin-top: 0;
+}
+#edit dt {
+    font-weight: bold;
+}
+#edit dd {
+    width: 80%;
+}
+#ruby,
+#description {
+    padding: 0.4rem;
+    width: 100%;
+    font-size: 1.125rem;
+    font-family: '游ゴシック', sans-serif;
+    border: solid 2px #bbb;
+    border-radius: 0.4rem;
+    line-height: 1.2;
+    resize: none; /* textarea固定 */
+}
+#ruby:focus,
+#description:focus {
+    outline: none;
+    border-color: #777;
+}
+
+.edit_menu {
+    margin-top: 48px;
+    text-align: center;
+}
+#save {
+    margin-bottom: 5rem;
+    padding: 0.5rem 1rem;
+    min-width: 6rem;
+    font-size: 1rem;
+}
+
+/* 前面に出るやつ */
+.primary_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: #3333;
+    opacity: 0;
+    animation: fadeIn 0.1s forwards;
+}
+#primary {
+    position: relative;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+#primary p {
+    margin: 2rem 0 4rem;
+    text-align: center;
+}
+.primary_menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+}
+.primary_menu button {
+    padding: 0.5rem 1rem;
+    min-width: 6rem;
+    font-size: 1rem;
+}
+.primary_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.125rem;
+    width: 2rem;
+    height: 2rem;
+    /* background-color: greenyellow; */
+}
+#closebtn {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#closebtn::before,
+#closebtn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    border-top: solid 1px #333;
+    transition: .3s;
+}
+#closebtn::before {
+    transform: rotate(45deg);
+}
+#closebtn:hover::before {
+    transform: rotate(45deg) scale(0.75);
+}
+#closebtn::after {
+    transform: rotate(-45deg);
+}
+#closebtn:hover::after {
+    transform: rotate(-45deg) scale(0.75);
+}
+
+
+@media screen and (max-width:480px) {
+    .word_description {
+        display: none;
+    }
+    #back {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+
+    /* edit.html */
+    #edit dd {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}

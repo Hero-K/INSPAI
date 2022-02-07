@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSPAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500;700&family=M+PLUS+Rounded+1c:wght@100;300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <div
+    x-data="{
+        words: [],
+        count: 0,
+        getWords() {
+            const request = JSON.parse(localStorage.getItem('words'));
+            this.words = request;
+            console.log(this.words);
+        },
+
+        key: -1,
+        target: {},
+        
+        form_show: false,
+        delete_show: false,
+        showOption(option, item, index) {
+            this.target = item;
+            this.key = index;
+            if(option === 'edit') {
+                this.form_show = true;
+            } else if(option === 'delete') {
+                this.delete_show = true;
+            } else {
+                alert('err');
+            }
+        },
+        closeOption(option) {
+            if(option === 'edit') {
+                this.form_show = false;
+            } else if(option === 'delete') {
+                this.delete_show = false;
+            } else {
+                alert('err');
+            }
+        },
+        
+    }"
+    >
+        <header class="header">
+            <a href="index.html" id="back"><div class="allow"><span></span><span></span><span></span></div></a>
+            <h1 class="logo"><a href="index.html"><img src="images/logo.svg" alt="INSPAI"></a></h1>
+            <div>
+                <!-- flexでロゴを真ん中にする為のダミー<a href="edit.html">あああ -->
+            </div>
+        </header>
+            <main
+            class="container"
+            x-init="getWords()">
+                <h2>保存された単語</h2>
+                <template x-for="(item, index) in words">
+                    <dl class="word">
+                        <dt class="word_title"><h5 class="word_title_writing" x-text="item.writing">ああああああああアアアアアアｱｱｱｱｧｧｧ単語</h5>
+                        <p class="word_title_ruby" x-text="item.ruby">アアアアアアアアアアアアアアｱｱｱｱｧｧｧタンゴ</p></dt>
+                        <div class="word_description_wrapper">
+                            <dd class="word_description" x-text="item.description">あああああああああああああ...</dd>
+                            <div class="word_menu">
+                                <a href="#" class="edit" @click="showOption('edit', item, index)"><img src="images/icon_edit.svg" alt="編集"></a>
+                                <a href="#" class="delete" @click="showOption('delete', item, index)"><img src="images/icon delete.svg" alt="削除"></a>
+                            </div>
+                        </div>
+                    </dl>
+                </template>
+                
+                <!-- edit.htmlと合体 -->
+                <div class="edit_wrapper" x-show="form_show">
+                    <h5 id="title_writing" x-text="target.writing">サンプル</h5>
+                    <p id="title_ruby" x-text="target.ruby">サンプル</p>
+        
+                    <form id="edit" name="edit">
+                        <input type="hidden" name="key" x-bind:value="key"><!-- indexは固定 -->
+                        <input type="hidden" name="writing" x-bind:value="target.writing"><!-- 単語は固定 -->
+        
+                        <dl class="edit_ruby">
+                            <dt>読み</dt>
+                            <dd><input type="text" name="ruby" id="ruby" x-bind:value="target.ruby"></dd>
+                        </dl>
+                        <dl class="edit_description">
+                            <dt>説明</dt>
+                            <dd><textarea name="description" id="description" rows="10" x-text="target.description"></textarea></dd>
+                        </dl>
+                        <div class="edit_menu"><button id="save" class="strong save_data">保存</button></div>
+                    </form>
+                </div>                
+            </main>
+
+            <div class="primary_wrapper" x-show="delete_show">
+                <div id="primary">
+                    <h3 x-text="target.writing">あああああ</h3>
+                    <form name="delete">
+                        <input type="hidden" name="key" x-bind:value="key">
+                    </form>
+                    <p class="notice">単語を削除しますか？</p>
+                    <div class="primary_menu">
+                        <button id="primary_cancel" @click="closeOption('delete')">キャンセル</button>
+                        <button id="primary_save" class="strong delete_data">削除</button>
+                    </div>
+                    <div class="primary_close"><a id="closebtn" href="#" @click="closeOption('delete')"><!-- xボタン --></a></div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

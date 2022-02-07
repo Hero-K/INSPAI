@@ -250,8 +250,14 @@ header .logo a {
     border-radius: 0.25rem;
     animation: fadeIn 0.6s ease-out forwards;
 }
-#primary p {
-    margin: 2rem 0 4rem;
+.primary_textbox {
+    margin: 2rem auto 3rem;
+}
+.primary_textbox h3 {
+    text-align: center;
+}
+.notice {
+    margin-top: 0.5rem;
     text-align: center;
 }
 .primary_menu {

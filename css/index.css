@@ -6,6 +6,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    font-size: 100%; /* 1rem = 10px */
+    font-family: 'Noto Sans JP', '游ゴシック', YuGothic, sans-serif;
+}
 img {
     width: 100%;
 }
@@ -51,7 +55,7 @@ img {
 }
 .header_navigation a {
     display: block;
-    border: solid 3px #333;
+    border: solid 2px #999;
 }
 .header_navigation img {
     display: inline-block;
@@ -144,8 +148,10 @@ img {
 .option_close :nth-child(2) {
     transform: rotate(-45deg);
 }
-.option h2 {
+.option_name {
     display: inline-block;
+    position: relative;
+    top: 0.25rem;
     font-size: 1.5rem;
     line-height: 1.25;
 }

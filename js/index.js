@@ -11,19 +11,32 @@ const styles = {
 const axios = require('axios'); // axios
 const POSITION_MISS_MAX = 50; // 生成ミス許容回数
 const GENERATE_MISS_MAX = 20; // 生成ミス許容回数
-const generator = document.querySelector('#generator');
+const generator = document.querySelector('#generator'); // ジェネレーター
+const menuButton = document.querySelector('#menu');
+menuButton.addEventListener('click', ()=> {
+    const target = document.querySelector('.header_menu');
+    target.classList.toggle('active');
+});
+const reverseButton = document.querySelector('#reverse');
+reverseButton.addEventListener('click', ()=> {
+    document.body.classList.toggle('reversed');
+});
 const reloadButton = document.querySelector('#reload');
 reloadButton.addEventListener('click', (e)=> {
     const target = e.currentTarget;
     target.classList.toggle('disabled');
-    catchWords();
-    setTimeout(()=>{target.classList.toggle('disabled')}, 2000);
+    generator.classList.toggle('fadeout');
+    setTimeout(()=>{catchWords();}, 300);
+    setTimeout(()=>{
+        target.classList.toggle('disabled');
+        generator.classList.toggle('fadeout');
+    }, 2000);
 });
 
 
 /* メインシステムワード抽出 
 ***************************************************************/
-// catchWords();
+catchWords();
 function catchWords() {
     generator.innerHTML= ''; // ジェネレーター全リセット
     
@@ -34,7 +47,7 @@ function catchWords() {
     .then(response => {
         // 結果を表示する
         const words = Array.from(response.data);
-        console.log(words);
+        // // console.log(words);
         let CNT = 0;
         let miss = 0; // ミス回数初期化
         for(const word of words ) {
@@ -57,12 +70,12 @@ function catchWords() {
                 flag = judgeArea(div);
                 ccc++;
             }
-            console.log(ccc);
+            // console.log(ccc);
 
 
             // 一定回数配置失敗したら
             if(!flag) {
-                console.log(CNT, flag);
+                // console.log(CNT, flag);
                 div.remove();
                 miss += 1;
 

@@ -10,21 +10,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Reggae+One&family=Yuji+Mai&family=Zen+Kurenaido&display=swap" rel="stylesheet">
     
+    <link rel="icon" href="images/favicon.svg">
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
     <script src="js/index.js" defer></script>
 </head>
-<body class="reverse">
+<body class="reversed">
     <div class="header_wrapper">
         <header class="header">
             <h1 class="logo"><img src="images/logo.svg" alt="INSPAI"></h1>
             <ul class="header_navigation">
                 <li>
-                    <a href="dictionary.html" id="dictionary"><img src="images/icon_menu.svg" alt="menu"></a>
+                    <a href="#" id="menu"><img src="images/icon_menu.svg" alt="menu"></a>
+                </li>
+                <li>
+                    <a href="#" id="reverse"><img src="images/icon_menu.svg" alt="menu"></a>
                 </li>
                 <li>
                     <a href="#" id="reload"><img src="images/icon_reload.svg" alt="リロード"></a>
+                </li>
+            </ul>
+            <ul class="header_menu">
+                <li>
+                    <a href="dictionary.html" id="menu">MEMO メモ</a>
                 </li>
             </ul>
         </header>
@@ -41,6 +50,7 @@
                     <span></span>
                 </a>
                 <h2 class="option_name"></h2>
+                <!-- <br/> -->
                 <ul class="option_menu">
                     <li class="save"><a href="#"><img src="images/icon_save.svg" alt="保存する"></a></li>
                     <li class="search"><a href="#"><img src="images/icon_search.svg" alt="検索する"></a></li>

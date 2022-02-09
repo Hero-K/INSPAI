@@ -43,17 +43,21 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
     margin: 0 auto;
     padding: 0 1rem;
     width: 100%;
     height: 4.5rem;
     max-width: 960px;
-    border-bottom: solid 2px #777;
-    /* background-color: aqua; */
+    background-color: #fafafa88;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 1px 0 #3333;
 }
 .header .logo {
-    width: 50%;
-    max-width: 150px;
+    width: 30%;
+    max-width: 120px;
 }
 header .logo a {
     color: #000;
@@ -95,18 +99,21 @@ header .logo a {
 
 .container {
     position: relative;
-    margin: 3rem auto 5rem;
+}
+.main_wrapper {
+    position: relative;
+    margin: 0 auto 5rem;
     padding: 0 1rem;
     width: 100%;
     max-width: 960px;
-    /* background-color: green; */
+    animation: slideInY 0.5s ease-out;
 }
-
 
 
 /* dictionary.html 
 *****************************************************/
-.container h2 {
+.main_wrapper h2 {
+    margin-top: 3rem;
     color: #333;
     font-size: 1.25rem;
 }
@@ -114,19 +121,34 @@ header .logo a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 32px;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px #3331;
     /* background-color: red; */
 }
 
 .word_title {
+    flex-grow: 2;
     font-weight: bold;
     line-height: 1.1;
+    text-decoration: none;
+    color: #333;
+    transition: .3s;
 }
 .word_title_writing {
     font-size: 2.25rem;
+    text-decoration: none;
+    color: #333;
+    transition: .3s;
+}
+.word_title_writing:hover {
+    color: #c33;
 }
 .word_title_ruby {
     margin-top: 0.5rem;
+    font-size: 1rem;
     color: #777;
 }
 
@@ -139,23 +161,49 @@ header .logo a {
 .word_description {
     padding-left: 1.5rem;
     max-height: 5rem;
-    overflow: scroll;
+    overflow-y: scroll;
+}
+/* スクロールバー */
+.word_description::-webkit-scrollbar {
+    width: 0.5rem;
+}
+ 
+.word_description::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 100px;
+}
+ 
+.word_description::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 100px;
 }
 
 .word_menu {
     display: flex;
     gap: 1rem;
+    justify-content: space-between;
     padding-left: 1.5rem;
 }
 .edit {
     display: block;
-    width: 2rem;
-    height: 2rem;
+}
+.search {
+    display: block;
 }
 .delete {
     display: block;
-    width: 2rem;
-    height: 2rem;
+}
+.word_menu a {
+    height: 1.5rem;
+}
+.word_menu a img {
+    height: 100%;
+    vertical-align: middle;
+    filter: grayscale(1);
+    transition: 0.2s ease-out;
+}
+.word_menu a:hover img {
+    filter: grayscale(0.2);
 }
 
 /* edit.php 
@@ -171,11 +219,11 @@ header .logo a {
 }
 
 .edit_wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
+    margin: 0 auto;
     padding: 1rem 1rem 5rem 1rem;
     width: 100%;
+    max-width: 960px;
     height: 100%;
     animation: slideInY 0.5s ease-out;
     background-color: #fafafa;
@@ -225,6 +273,13 @@ header .logo a {
     padding: 0.5rem 1rem;
     min-width: 6rem;
     font-size: 1rem;
+}
+.edit_close {
+    position: relative;
+    margin: 1.5rem 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    /* background-color: greenyellow; */
 }
 
 /* 前面に出るやつ */
@@ -280,14 +335,14 @@ header .logo a {
     height: 2rem;
     /* background-color: greenyellow; */
 }
-#closebtn {
+.closebtn {
     display: block;
     position: relative;
     width: 100%;
     height: 100%;
 }
-#closebtn::before,
-#closebtn::after {
+.closebtn::before,
+.closebtn::after {
     content: "";
     display: block;
     position: absolute;
@@ -296,16 +351,16 @@ header .logo a {
     border-top: solid 1px #333;
     transition: .3s;
 }
-#closebtn::before {
+.closebtn::before {
     transform: rotate(45deg);
 }
-#closebtn:hover::before {
+.closebtn:hover::before {
     transform: rotate(45deg) scale(0.75);
 }
-#closebtn::after {
+.closebtn::after {
     transform: rotate(-45deg);
 }
-#closebtn:hover::after {
+.closebtn:hover::after {
     transform: rotate(-45deg) scale(0.75);
 }
 

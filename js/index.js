@@ -129,18 +129,18 @@ function catchWords() {
                 generator.appendChild(clone);
                 
                 const option = document.querySelector('.option');
-        
+        // generator.getBoundingClientRect().height/2
                 const optionArea = option.getBoundingClientRect(); 
-                if (targetArea.top + e.offsetY > generator.getBoundingClientRect().height/2) {
+                if (e.offsetY + targetArea.top > 64) {
                     option.style.top = `${targetArea.top + e.offsetY - optionArea.height - 18}px`;
                 } else {
-                    option.style.top = `${targetArea.top + e.offsetY}px`;
+                    option.style.top = `${targetArea.top + e.offsetY + 18}px`;
                 }
         
                 if (targetArea.left + e.offsetX + optionArea.width > generator.getBoundingClientRect().width) {
                     option.style.right = `${0}px`;
                 } else {
-                    option.style.left = `${targetArea.left + e.offsetX}px`;
+                    option.style.left = `${targetArea.left + e.offsetX - 36}px`;
                 }
         
                 // console.log(e.target.innerText);

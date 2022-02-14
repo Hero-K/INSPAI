@@ -16,46 +16,47 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
     <script src="js/index.js" defer></script>
 </head>
-<body class="reversed">
-    <div class="header_wrapper">
-        <header class="header">
-            <h1 class="logo"><img src="images/logo.svg" alt="INSPAI"></h1>
-            <ul class="header_navigation">
-                <li>
-                    <a href="#" id="menu"><img src="images/icon_menu.svg" alt="menu"></a>
-                </li>
-                <li>
-                    <a href="#" id="reverse"><img src="images/icon_menu.svg" alt="menu"></a>
-                </li>
-                <li>
-                    <a href="#" id="reload"><img src="images/icon_reload.svg" alt="リロード"></a>
-                </li>
-            </ul>
-            <ul class="header_menu">
-                <li>
-                    <a href="dictionary.html" id="menu">MEMO メモ</a>
-                </li>
-            </ul>
-        </header>
-    </div>
-    <div id="generator">
-        <!-- ここに文字が生成 -->
-    </div>
-
-    <!-- テンプレート -->
-        <template id="template_option">
-            <div class="option">
-                <a href="#" class="option_close">
-                    <span></span>
-                    <span></span>
-                </a>
-                <h2 class="option_name"></h2>
-                <!-- <br/> -->
-                <ul class="option_menu">
-                    <li class="save"><a href="#"><img src="images/icon_save.svg" alt="保存する"></a></li>
-                    <li class="search"><a href="#"><img src="images/icon_search.svg" alt="検索する"></a></li>
+<body>
+    <div class="container reversed">
+        <div class="header_wrapper">
+            <header class="header">
+                <h1 class="logo"><img src="images/logo.svg" alt="INSPAI"></h1>
+                <ul class="header_navigation">
+                    <li>
+                        <a href="#" id="menu"><img src="images/icon_menu.svg" alt="メニュー"></a>
+                    </li>
+                    <li>
+                        <a href="#" id="reverse"><img src="images/icon_reverse.svg" alt="反転"></a>
+                    </li>
+                    <li>
+                        <a href="#" id="reload"><img src="images/icon_reload.svg" alt="リロード"></a>
+                    </li>
                 </ul>
-            </div>
-        </template>
+                <ul class="header_menu">
+                    <li>
+                        <a href="dictionary.html" id="menu">MEMO メモ</a>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <div id="generator">
+            <!-- ここに文字が生成 -->
+        </div>
+        <!-- テンプレート -->
+            <template id="template_option">
+                <div class="option">
+                    <a href="#" class="option_close">
+                        <span></span>
+                        <span></span>
+                    </a>
+                    <h2 class="option_name"></h2>
+                    <!-- <br/> -->
+                    <ul class="option_menu">
+                        <li class="save"><a href="#"><img src="images/icon_save.svg" alt="保存する"></a></li>
+                        <li class="search"><a href="#"><img src="images/icon_search.svg" alt="検索する"></a></li>
+                    </ul>
+                </div>
+            </template>
+    </div>
 </body>
 </html>

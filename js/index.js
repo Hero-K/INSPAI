@@ -8,7 +8,7 @@ const styles = {
 };
 
 
-const axios = require('axios'); // axios
+// const axios = require('axios'); // axios
 const POSITION_MISS_MAX = 50; // 生成ミス許容回数
 const GENERATE_MISS_MAX = 20; // 生成ミス許容回数
 const generator = document.querySelector('#generator'); // ジェネレーター

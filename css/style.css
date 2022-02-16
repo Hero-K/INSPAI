@@ -1,0 +1,383 @@
+@charset "utf-8";
+@import url(./animation.css);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* min-height: 100vh; */
+    font-size: 100%; /* 1rem = 10px */
+    font-family: 'Noto Sans JP', '游ゴシック', YuGothic, sans-serif;
+    background-color: #fafafa;
+}
+
+button {
+    white-space: nowrap;
+    font-weight: lighter;
+    font-family: 'M PLUS Rounded', sans-serif;
+    background-color: #fff;
+    /* border: solid 1px #333; */
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px #000;
+    transition: .2s;
+}
+button.strong {
+    color: #fff;
+    background-color: #333;
+    /* border: solid 1px #333; */
+}
+button:hover {
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+
+/* ヘッダー */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    height: 4.5rem;
+    max-width: 960px;
+    background-color: #fafafa88;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 1px 0 #3333;
+}
+.header .logo {
+    width: 30%;
+    max-width: 120px;
+}
+header .logo a {
+    color: #000;
+    text-decoration: none;
+}
+
+#back {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+}
+.allow {
+    width: 100%;
+    height: 100%;
+}
+.allow::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    border-top: solid 1px #333;
+}
+.allow::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    width: 40%;
+    height: 40%;
+    border-top: solid 1px #333;
+    border-left: solid 1px #333;
+    transform: rotate(-45deg);
+}
+ #back:hover .allow {
+    animation: Allow .5s ease-out;
+}
+
+.container {
+    position: relative;
+}
+.main_wrapper {
+    position: relative;
+    margin: 0 auto 5rem;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 960px;
+    animation: slideInY 0.5s ease-out;
+}
+
+
+/* dictionary.html 
+*****************************************************/
+.main_wrapper h2 {
+    margin-top: 3rem;
+    color: #333;
+    font-size: 1.25rem;
+}
+.word {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px #3331;
+    /* background-color: red; */
+}
+
+.word_title {
+    flex-grow: 2;
+    font-weight: bold;
+    line-height: 1.1;
+    text-decoration: none;
+    color: #333;
+    transition: .3s;
+}
+.word_title_writing {
+    font-size: 2.25rem;
+    text-decoration: none;
+    color: #333;
+    transition: .3s;
+}
+.word_title_writing:hover {
+    color: #c33;
+}
+.word_title_ruby {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #777;
+}
+
+
+.word_description_wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 50%;
+}
+.word_description {
+    padding-left: 1.5rem;
+    max-height: 5rem;
+    overflow-y: scroll;
+}
+/* スクロールバー */
+.word_description::-webkit-scrollbar {
+    width: 0.5rem;
+}
+ 
+.word_description::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 100px;
+}
+ 
+.word_description::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 100px;
+}
+
+.word_menu {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+}
+.edit {
+    display: block;
+}
+.search {
+    display: block;
+}
+.delete {
+    display: block;
+}
+.word_menu a {
+    height: 1.5rem;
+}
+.word_menu a img {
+    height: 100%;
+    vertical-align: middle;
+    filter: grayscale(1);
+    transition: 0.2s ease-out;
+}
+.word_menu a:hover img {
+    filter: grayscale(0.2);
+}
+
+/* edit.php 
+****************************************************/
+#title_writing {
+    font-size: 2.5rem;
+    line-height: 1.1;
+}
+#title_ruby {
+    margin-top: 0.75rem;
+    color: #777;
+    line-height: 1.1;
+}
+
+.edit_wrapper {
+    position: relative;
+    margin: 0 auto;
+    padding: 1rem 1rem 5rem 1rem;
+    width: 100%;
+    max-width: 960px;
+    height: 100%;
+    animation: slideInY 0.5s ease-out;
+    background-color: #fafafa;
+}
+#edit {
+    margin-top: 48px;
+}
+#edit dl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+}
+#edit dl:first-child {
+    margin-top: 0;
+}
+#edit dt {
+    font-weight: bold;
+}
+#edit dd {
+    width: 80%;
+}
+#ruby,
+#description {
+    padding: 0.4rem;
+    width: 100%;
+    font-size: 1.125rem;
+    font-family: '游ゴシック', sans-serif;
+    border: solid 2px #bbb;
+    border-radius: 0.4rem;
+    line-height: 1.2;
+    resize: none; /* textarea固定 */
+}
+#ruby:focus,
+#description:focus {
+    outline: none;
+    border-color: #777;
+}
+
+.edit_menu {
+    margin-top: 48px;
+    text-align: center;
+}
+#save {
+    margin-bottom: 5rem;
+    padding: 0.5rem 1rem;
+    min-width: 6rem;
+    font-size: 1rem;
+}
+.edit_close {
+    position: relative;
+    margin: 1.5rem 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    /* background-color: greenyellow; */
+}
+
+/* 前面に出るやつ */
+.primary_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: #3333;
+    opacity: 0;
+    animation: fadeIn 0.1s forwards;
+}
+#primary {
+    position: relative;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+.primary_textbox {
+    margin: 2rem auto 3rem;
+}
+.primary_textbox h3 {
+    text-align: center;
+}
+.notice {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+.primary_menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+}
+.primary_menu button {
+    padding: 0.5rem 1rem;
+    min-width: 6rem;
+    font-size: 1rem;
+}
+.primary_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.125rem;
+    width: 2rem;
+    height: 2rem;
+    /* background-color: greenyellow; */
+}
+.closebtn {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.closebtn::before,
+.closebtn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    border-top: solid 1px #333;
+    transition: .3s;
+}
+.closebtn::before {
+    transform: rotate(45deg);
+}
+.closebtn:hover::before {
+    transform: rotate(45deg) scale(0.75);
+}
+.closebtn::after {
+    transform: rotate(-45deg);
+}
+.closebtn:hover::after {
+    transform: rotate(-45deg) scale(0.75);
+}
+
+
+@media screen and (max-width:480px) {
+    .word_description {
+        display: none;
+    }
+    #back {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+
+    /* edit.html */
+    #edit dd {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}

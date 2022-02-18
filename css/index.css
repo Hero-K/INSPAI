@@ -82,7 +82,7 @@ img {
     transition: 0.3s;
 }
 #reload:hover img {
-    animation: rotate 1s ease-in-out infinite;
+    animation: rotate 1s ease-in-out;
 }
 #reload.disabled {
     pointer-events: none;

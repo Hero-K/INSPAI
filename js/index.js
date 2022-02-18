@@ -8,7 +8,7 @@ const styles = {
 };
 
 
-const axios = require('axios'); // axios
+// const axios = require('axios'); // axios
 const POSITION_MISS_MAX = 50; // 生成ミス許容回数
 const GENERATE_MISS_MAX = 20; // 生成ミス許容回数
 const generator = document.querySelector('#generator'); // ジェネレーター
@@ -40,8 +40,7 @@ catchWords();
 function catchWords() {
     generator.innerHTML= ''; // ジェネレーター全リセット
     
-    let ID = Math.random(); 
-    const url = `https://river.tango-gacha.com/API/WordsData/tangos0.json?id=${ ID }`; // 偉大なるランダム生成ガチャ様
+    const url = 'https://inspaibackend.herokuapp.com'; // 偉大なるランダム生成ガチャ様
     axios
     .get(url)
     .then(response => {
@@ -145,7 +144,7 @@ function catchWords() {
         
                 // console.log(e.target.innerText);
                 // console.log(`X:${targetArea.left + e.offsetX}`, `Y:${targetArea.top + e.offsetY}`);
-            });
+            })
             // console.log(miss);
             miss = 0; // 成功したらミス連続回数初期化
         }

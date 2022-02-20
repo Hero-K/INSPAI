@@ -1,5 +1,10 @@
 'use strict';
 
+const reverseButton = document.querySelector('#reverse');
+reverseButton.addEventListener('click', ()=> {
+    document.body.classList.toggle('reversed');
+});
+
 document.querySelector('.save_data').addEventListener('click', saveData);
 function saveData () {
     const request = localStorage.getItem('words');

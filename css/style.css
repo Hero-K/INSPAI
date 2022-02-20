@@ -20,7 +20,6 @@ button {
     font-weight: lighter;
     font-family: 'M PLUS Rounded', sans-serif;
     background-color: #fff;
-    /* border: solid 1px #333; */
     border: none;
     border-radius: 0.25rem;
     box-shadow: 0 0 1px #000;
@@ -29,7 +28,6 @@ button {
 button.strong {
     color: #fff;
     background-color: #333;
-    /* border: solid 1px #333; */
 }
 button:hover {
     color: #000;
@@ -96,6 +94,21 @@ header .logo a {
  #back:hover .allow {
     animation: Allow .5s ease-out;
 }
+#reverse {
+    position: relative;
+    padding: 1px;
+    width: 2rem;
+    height: 2rem;
+    background-color: #fff;
+    transition: 0.3s;
+    border: solid 1px #888;
+}
+#reverse:hover {
+    filter: invert(1);
+}
+#reverse img {
+    width: 100%;
+}
 
 .container {
     position: relative;
@@ -114,7 +127,6 @@ header .logo a {
 *****************************************************/
 .main_wrapper h2 {
     margin-top: 3rem;
-    color: #333;
     font-size: 1.25rem;
 }
 .word {
@@ -362,6 +374,19 @@ header .logo a {
 }
 .closebtn:hover::after {
     transform: rotate(-45deg) scale(0.75);
+}
+
+body.reversed {
+    background-color: #000;
+    color: #fafafa;
+    transition: 0.5s ease-in-out;
+}
+body.reversed a {
+    color: #fafafa;
+}
+body.reversed .logo,
+body.reversed .header_navigation {
+    filter: invert(1);
 }
 
 

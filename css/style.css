@@ -13,6 +13,10 @@ body {
     font-size: 100%; /* 1rem = 10px */
     font-family: 'Noto Sans JP', '游ゴシック', YuGothic, sans-serif;
     background-color: #fafafa;
+    transition: 0.3s;
+}
+a {
+    color: #333;
 }
 
 button {
@@ -52,6 +56,7 @@ button:hover {
     background-color: #fafafa88;
     backdrop-filter: blur(2px);
     box-shadow: 0 1px 0 #3333;
+    transition: 0.3s;
 }
 .header .logo {
     width: 30%;
@@ -100,8 +105,8 @@ header .logo a {
     width: 2rem;
     height: 2rem;
     background-color: #fff;
-    transition: 0.3s;
     border: solid 1px #888;
+    transition: 0.3s;
 }
 #reverse:hover {
     filter: invert(1);
@@ -129,6 +134,12 @@ header .logo a {
     margin-top: 3rem;
     font-size: 1.25rem;
 }
+.notfound {
+    margin-top: 3rem;
+    text-align: center;
+    color: #888;
+    font-weight: lighter;
+}
 .word {
     display: flex;
     justify-content: space-between;
@@ -139,6 +150,7 @@ header .logo a {
     border-radius: 8px;
     box-shadow: 1px 1px 5px #3331;
     /* background-color: red; */
+    transition: 0.3s;
 }
 
 .word_title {
@@ -146,13 +158,11 @@ header .logo a {
     font-weight: bold;
     line-height: 1.1;
     text-decoration: none;
-    color: #333;
     transition: .3s;
 }
 .word_title_writing {
     font-size: 2.25rem;
     text-decoration: none;
-    color: #333;
     transition: .3s;
 }
 .word_title_writing:hover {
@@ -162,6 +172,7 @@ header .logo a {
     margin-top: 0.5rem;
     font-size: 1rem;
     color: #777;
+    transition: .3s;
 }
 
 
@@ -293,6 +304,70 @@ header .logo a {
     height: 2.5rem;
     /* background-color: greenyellow; */
 }
+.closebtn {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.closebtn::before,
+.closebtn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    border-top: solid 1px #333;
+    transition: .3s;
+}
+.closebtn::before {
+    transform: rotate(45deg);
+}
+.closebtn:hover::before {
+    transform: rotate(45deg) scale(0.75);
+}
+.closebtn::after {
+    transform: rotate(-45deg);
+}
+.closebtn:hover::after {
+    transform: rotate(-45deg) scale(0.75);
+}
+
+.reversed {
+    background-color: #000;
+    color: #fafafa;
+    transition: 0.5s ease-in-out;
+}
+.reversed a {
+    color: #fafafa;
+}
+.reversed .logo {
+    filter: invert(1);
+}
+.reversed .header {
+    background-color: #0003;
+}
+.reversed .allow::before {
+    border-top: solid 1px #fff;
+}
+.reversed .allow::after {
+    border-top: solid 1px #fff;
+    border-left: solid 1px #fff;
+}
+.reversed .word {
+    background-color: #000;
+    box-shadow:1px 1px 5px #fafafa33;
+}
+.reversed .word_title_ruby {
+    color: #ccc;
+}
+.reversed .edit_wrapper {
+    background-color: #000;
+}
+.reversed .edit_wrapper .closebtn::before,
+.reversed .edit_wrapper .closebtn::after {
+    border-top: solid 1px #fafafa;
+}
 
 /* 前面に出るやつ */
 .primary_wrapper {
@@ -313,6 +388,7 @@ header .logo a {
     position: relative;
     margin: 1rem;
     padding: 1rem;
+    color: #333;
     background-color: #fff;
     border-radius: 0.25rem;
     animation: fadeIn 0.6s ease-out forwards;
@@ -346,47 +422,6 @@ header .logo a {
     width: 2rem;
     height: 2rem;
     /* background-color: greenyellow; */
-}
-.closebtn {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-.closebtn::before,
-.closebtn::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    border-top: solid 1px #333;
-    transition: .3s;
-}
-.closebtn::before {
-    transform: rotate(45deg);
-}
-.closebtn:hover::before {
-    transform: rotate(45deg) scale(0.75);
-}
-.closebtn::after {
-    transform: rotate(-45deg);
-}
-.closebtn:hover::after {
-    transform: rotate(-45deg) scale(0.75);
-}
-
-body.reversed {
-    background-color: #000;
-    color: #fafafa;
-    transition: 0.5s ease-in-out;
-}
-body.reversed a {
-    color: #fafafa;
-}
-body.reversed .logo,
-body.reversed .header_navigation {
-    filter: invert(1);
 }
 
 

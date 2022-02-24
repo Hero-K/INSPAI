@@ -258,7 +258,6 @@ img {
 body.reversed {
     background-color: #000;
     color: #fafafa;
-    transition: 0.5s ease-in-out;
 }
 body.reversed a {
     color: #fafafa;
@@ -279,4 +278,13 @@ body.reversed .option:before {
     border-bottom: 2px solid #fafafa;
     border-right: 2px solid #fafafa;
     transform: rotate(45deg);
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 62.5%;
+    }
+    .header .logo {
+        max-width: 150px;
+    }
 }

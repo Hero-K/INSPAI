@@ -166,7 +166,7 @@ img {
     border: solid 2px #000;
     border-radius: 8px;
     animation: slideInX 0.2s ease-out;
-    transition: 0.5s;
+    transition: 0.2s;
     /* white-space: nowrap; */
 }
 .option:before {
@@ -180,7 +180,7 @@ img {
     border-bottom: 2px solid #333;
     border-right: 2px solid #333;
     transform: rotate(45deg);
-    transition: 0.5s;
+    transition: 0.2s;
 }
 .option_close {
     display: inline-block;
@@ -245,10 +245,15 @@ img {
 }
 .option_menu a:hover img {
     filter: grayscale(0.4);
+    transition: 0.2s;
 }
 .option_menu a:active img {
     filter: grayscale(0);
-    transition: 1s;
+    transition: 0.3s;
+}
+.option_menu a img.saved {
+    filter: invert(17%) sepia(91%) saturate(7085%) hue-rotate(160deg) brightness(100%) contrast(106%);
+    pointer-events: none;
 }
 
 

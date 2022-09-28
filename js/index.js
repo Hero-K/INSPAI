@@ -3,7 +3,7 @@
 const styles = {
     size: ['1rem', '1.5rem', '1.5rem', '1.5rem', '2rem', '2rem', '2rem', '3rem', '4rem', '4rem'],
     family: ['Zen Kurenaido', 'Yuji Mai', 'Reggae One', 'Rampart One', '游明朝', '游ゴシック', 'sans-serif', 'serif', '游明朝', '游ゴシック', 'sans-serif', 'serif', '游明朝', '游ゴシック', 'sans-serif', 'serif'],
-    weight: ['normal', 'bold', 'lighter'],
+    weight: ['normal', 'normal', 'bold', 'lighter'],
     writingMode: [],
 };
 
@@ -39,8 +39,8 @@ reloadButton.addEventListener('click', (e)=> {
 catchWords();
 function catchWords() {
     generator.innerHTML= ''; // ジェネレーター全リセット
-    
-    const url = 'https://inspaibackend.herokuapp.com'; // 偉大なるランダム生成ガチャ様
+
+    const url = 'https://inspaibackend.herokuapp.com';
     axios
     .get(url)
     .then(response => {
@@ -102,7 +102,7 @@ function catchWords() {
                 });                
 
                 // clone.querySelector('.save').innerText = 'save'; // <template>にｱｲｺﾝ入れたら消す
-                clone.querySelector('.save').addEventListener('click', () => {
+                clone.querySelector('.save').addEventListener('click', (e) => {
                     const word = {
                         writing: target.innerText,
                         ruby: '',
@@ -116,8 +116,9 @@ function catchWords() {
                     data[data.length] = word;
 
                     localStorage.setItem('words', JSON.stringify(data)); // 上書き
+
+                    e.target.classList.add('saved');
                 });
-                
                 // clone.querySelector('.search').innerText = 'search'; // <template>にｱｲｺﾝ入れたら消す
                 clone.querySelector('.search').addEventListener('click', () => {
                     const url = `https://www.google.com/search?q=${target.innerText}`;
@@ -129,7 +130,7 @@ function catchWords() {
                 
                 const option = document.querySelector('.option');
         // generator.getBoundingClientRect().height/2
-                const optionArea = option.getBoundingClientRect(); 
+                const optionArea = option.getBoundingClientRect();
                 if (e.offsetY + targetArea.top > 64) {
                     option.style.top = `${targetArea.top + e.offsetY - optionArea.height - 18}px`;
                 } else {
@@ -141,7 +142,7 @@ function catchWords() {
                 } else {
                     option.style.left = `${targetArea.left + e.offsetX - 36}px`;
                 }
-        
+
                 // console.log(e.target.innerText);
                 // console.log(`X:${targetArea.left + e.offsetX}`, `Y:${targetArea.top + e.offsetY}`);
             })

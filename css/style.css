@@ -126,26 +126,32 @@ header .logo a {
     max-width: 960px;
     animation: slideInY 0.5s ease-out;
 }
-
-
-/* dictionary.html 
-*****************************************************/
 .main_wrapper h2 {
     margin-top: 3rem;
     font-size: 1.25rem;
 }
+
+/* dictionary.html 
+*****************************************************/
+
 .notfound {
     margin-top: 3rem;
     text-align: center;
     color: #888;
     font-weight: lighter;
 }
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    width: 100%;
+}
 .word {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 1.5rem;
-    padding: 1rem;
+    width: 100%;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 1px 1px 5px #3331;
@@ -154,6 +160,9 @@ header .logo a {
 }
 
 .word_title {
+    display: block;
+    padding: 1rem 0 1rem 1rem;
+    height: 100%;
     flex-grow: 2;
     font-weight: bold;
     line-height: 1.1;
@@ -169,8 +178,8 @@ header .logo a {
     color: #c33;
 }
 .word_title_ruby {
-    margin-top: 0.5rem;
-    font-size: 1rem;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
     color: #777;
     transition: .3s;
 }
@@ -179,6 +188,7 @@ header .logo a {
 .word_description_wrapper {
     display: flex;
     align-items: center;
+    padding-right: 1rem;
     max-width: 50%;
 }
 .word_description {
@@ -346,6 +356,7 @@ header .logo a {
 }
 .reversed .header {
     background-color: #0003;
+    box-shadow: 0 1px 0 #ccc3;
 }
 .reversed .allow::before {
     border-top: solid 1px #fff;

@@ -71,27 +71,30 @@
             x-init="getWords()"
             x-show="main_show">
                 <h2>保存された単語</h2>
-                <template x-if="words.length > 0">
-                    <template x-for="(item, index) in words">
-                        <dl class="word">
-                            <a href="#" class="word_title" @click="showOption('edit', item, index)">
-                            <dt class="word_title_writing"><h5 x-text="item.writing">ああああああああアアアアアアｱｱｱｱｧｧｧ単語</h5>
-                            <p class="word_title_ruby" x-text="item.ruby">アアアアアアアアアアアアアアｱｱｱｱｧｧｧタンゴ</p></dt>
-                            </a>
-                            <div class="word_description_wrapper">
-                                <dd class="word_description" x-text="item.description">あああああああああああああ...</dd>
-                                <div class="word_menu">
-                                    <!-- <a href="#" class="edit" @click="showOption('edit', item, index)"><img src="images/icon_edit.svg" alt="編集"></a> -->
-                                    <a x-bind:href="'#'+index" class="search" @click="search(item.writing)"><img src="images/icon_search.svg" alt="検索"></a>
-                                    <a href="#" class="delete" @click="showOption('delete', item, index)"><img src="images/icon_delete.svg" alt="削除"></a>
+                <div class="words">
+                    <template x-if="words.length > 0">
+                        <template x-for="(item, index) in words">
+                            <dl class="word">
+                                <a href="#" class="word_title" @click="showOption('edit', item, index)">
+                                <dt class="word_title_writing"><h5 x-text="item.writing">sample</h5>
+                                        <p class="word_title_ruby" x-show="item.ruby" x-text="item.ruby">sample</p>
+                                </dt>
+                                </a>
+                                <div class="word_description_wrapper">
+                                    <dd class="word_description" x-text="item.description">sample</dd>
+                                    <div class="word_menu">
+                                        <!-- <a href="#" class="edit" @click="showOption('edit', item, index)"><img src="images/icon_edit.svg" alt="編集"></a> -->
+                                        <a x-bind:href="'#'+index" class="search" @click="search(item.writing)"><img src="images/icon_search.svg" alt="検索"></a>
+                                        <a href="#" class="delete" @click="showOption('delete', item, index)"><img src="images/icon_delete.svg" alt="削除"></a>
+                                    </div>
                                 </div>
-                            </div>
-                        </dl>
+                            </dl>
+                        </template>
                     </template>
-                </template>
-                <template x-if="words.length == 0">
-                    <h4 class="notfound">404 保存された単語がありませんね :-(</h4>
-                </template>
+                    <template x-if="words.length == 0">
+                        <h4 class="notfound">404 保存された単語がありませんね :-(</h4>
+                    </template>
+                </div>
             </main>
 
             <!-- edit.htmlと合体 -->
@@ -123,7 +126,7 @@
                         <input type="hidden" name="key" x-bind:value="key">
                     </form>
                     <div class="primary_textbox">
-                        <h3 x-text="target.writing">あああああ</h3>
+                        <h3 x-text="target.writing"></h3>
                         <p class="notice">単語を削除しますか？</p>
                     </div>
                     <div class="primary_menu">

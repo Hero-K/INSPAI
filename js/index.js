@@ -40,7 +40,7 @@ catchWords();
 function catchWords() {
     generator.innerHTML= ''; // ジェネレーター全リセット
 
-    const url = 'https://inspaibackend.herokuapp.com';
+    const url = 'https://inspaibackend.glitch.me';
     axios
     .get(url)
     .then(response => {
